@@ -34,7 +34,7 @@ class Popup {
     this.popup;
     this.btnOk;
     this.btnCancel;
-    this.btncustom;
+    this.btnCustom;
     this.click;
     console.table(this.input);
   }
@@ -96,10 +96,10 @@ class Popup {
       buttonLine.appendChild(this.btnCancel);
     }
     if (this.input.custom == true) {
-      this.btncustom = document.createElement("BUTTON");
-      this.btncustom.innerHTML = this.input.text;
-      this.btncustom.classList.add("standard-button");
-      buttonLine.appendChild(this.btncustom);
+      this.btnCustom = document.createElement("BUTTON");
+      this.btnCustom.innerHTML = this.input.text;
+      this.btnCustom.classList.add("standard-button");
+      buttonLine.appendChild(this.btnCustom);
     }
 
   }
@@ -116,7 +116,7 @@ class Popup {
     const inBtnOk = this.input.ok;
     const btnCancel = this.btnCancel;
     const inBtnCancel = this.input.cancel;
-    const btnCustom = this.btncustom;
+    const btnCustom = this.btnCustom;
     const inBtnCustom = this.input.custom;
 
     var promise = new Promise(function(resolve, reject) {

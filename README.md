@@ -1,10 +1,11 @@
 # Vanilla JS and CSS Popup libary
 
-This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML it is pure JS and CSS.
+This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML because it is pure JS and CSS.
 
 ## Usage:
 
 ```HTML
+<!--Include the CSS-->
 <link rel="stylesheet" href="popup.css">
 ```
 
@@ -26,7 +27,7 @@ This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML 
 
     if (result == "ok") { 
       //What should happen if ok was pressed
-    } else if (result == "canel") { 
+    } else if (result == "cancel") {
       //What should happen if cancel was pressed
     } else if (result == "custom") {
       //What should happen if the custom button was pressed
@@ -40,9 +41,9 @@ This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML 
 
 ## Customization
 
-You can coustomize the conntent of the Popup via the JSON String at `new Popup({...})`
+You can customize the conntent of the Popup via the JSON String at `new Popup({...})`
 
-But if you don't like the look of the popups you can write your one CSS or if you only don't like the colortheme you can go to the `:root` Elemt in the CSS and change the color variables.
+If you don't like the look of the popups, you can write your own CSS, or if you only don't like the color theme, you can go to the `:root` Element in the CSS and change the color variables.
 ```CSS
 /* Colortheme */
 :root {
