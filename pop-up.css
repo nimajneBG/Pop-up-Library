@@ -12,14 +12,14 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 /* Color theme */
 :root {
-	--popupBG: rgba(26, 26, 26, 0.7);
-	--popupWindowBG: #fff;
+	--popUpBG: rgba(26, 26, 26, 0.7);
+	--popUpWindowBG: #fff;
 	--btnBG: #3498db;
 	--btnText: #fff;
 	--textColor: #000;
 }
 
-.popup-bg {
+.pop-up-bg {
 	position: fixed;
 	display: flex;
 	top: 0;
@@ -29,15 +29,15 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	z-index: 4;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--popupBG);
+	background-color: var(--popUpBG);
 }
 
-.popup {
+.pop-up {
 	max-width: 500px;
 	min-width: 200px;
 	height: auto;
   	max-height: 300px;
-	background-color: var(--popupWindowBG);
+	background-color: var(--popUpWindowBG);
 	text-align: left;
 	margin: 15px !important;
 	padding-left: 15px;
@@ -60,7 +60,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
   	margin-left: 5px;
 }
 
-.popup-icon {
+.pop-up-icon {
   	margin: 0;
   	font-size: 48pt;
   	text-align: center;

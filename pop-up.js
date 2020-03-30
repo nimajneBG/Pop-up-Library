@@ -10,12 +10,12 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-class Popup {
+class PopUp {
 
   constructor(x) {
     this.input = x;
-    this.popupBg;
-    this.popup;
+    this.popUpBg;
+    this.popUp;
     this.btnOk;
     this.btnCancel;
     this.btnCustom;
@@ -33,26 +33,26 @@ class Popup {
 
 
     //Create background
-    this.popupBg = document.createElement("DIV");
-    this.popupBg.classList.add("popup-bg");
-    document.body.appendChild(this.popupBg);
+    this.popUpBg = document.createElement("DIV");
+    this.popUpBg.classList.add("pop-up-bg");
+    document.body.appendChild(this.popUpBg);
 
 
     //Create pop-up
-    this.popup = document.createElement("DIV");
-    this.popup.classList.add("popup");
-    this.popupBg.appendChild(this.popup);
+    this.popUp = document.createElement("DIV");
+    this.popUp.classList.add("pop-up");
+    this.popUpBg.appendChild(this.popUp);
 
     if (this.input.icon != false) {
       var icon = document.createElement("P");
-      icon.classList.add("popup-icon");
+      icon.classList.add("pop-up-icon");
       icon.innerHTML = this.input.icon;
-      this.popup.appendChild(icon);
+      this.popUp.appendChild(icon);
     }
 
-    var popupText = document.createElement("P");
-    popupText.innerHTML = this.input.message;
-    this.popup.appendChild(popupText);
+    var popUpText = document.createElement("P");
+    popUpText.innerHTML = this.input.message;
+    this.popUp.appendChild(popUpText);
 
     this.createButtons();
 
@@ -65,7 +65,7 @@ class Popup {
     //Create buttons
     var buttonLine = document.createElement("DIV");
     buttonLine.classList.add("button-line");
-    this.popup.appendChild(buttonLine);
+    this.popUp.appendChild(buttonLine);
 
     if (this.input.ok == true) {
       this.btnOk = document.createElement("BUTTON");
@@ -89,13 +89,13 @@ class Popup {
   }
 
   close() {
-    this.popupBg.remove();
+    this.popUpBg.remove();
   }
 
 
 
   events() {
-    const bg = this.popupBg;
+    const bg = this.popUpBg;
     const btnOk = this.btnOk;
     const inBtnOk = this.input.ok;
     const btnCancel = this.btnCancel;
