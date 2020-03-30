@@ -1,6 +1,6 @@
 /*
 
-Libary for popups they look much nicer than alert()
+Library for pop-ups that look much nicer than alert()
 © by Benjamin Grau
 
 
