@@ -2,7 +2,7 @@
 
 This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML it is pure JS and CSS.
 
-## Using:
+## Usage:
 
 ```HTML
 <link rel="stylesheet" href="popup.css">
