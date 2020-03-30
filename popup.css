@@ -1,0 +1,78 @@
+/*
+
+Libary for popups they look much nicer than alert()
+© by Benjamin Grau
+
+You don't like the colortheme?
+Change it! Go to ":root" and change only the variables
+
+*/
+
+/* Colortheme */
+:root {
+	--popupBG: rgba(26, 26, 26, 0.7);
+	--popupWindowBG: #fff;
+	--btnBG: #3498db;
+	--btnText: #fff;
+	--textColor: #000;
+}
+
+.popup-bg {
+	position: fixed;
+	display: flex;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--popupBG);
+}
+
+.popup {
+	max-width: 500px;
+	min-width: 200px;
+	height: auto;
+  	max-height: 300px;
+	background-color: var(--popupWindowBG);
+	text-align: left;
+	margin: 15px !important;
+	padding-left: 15px;
+  	padding-right: 15px;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+	border-radius: 2px;
+	z-index: 5;
+	color: var(--textColor);
+}
+
+.button-line {
+	text-align: right;
+  	border-top: 1px solid lightgrey;
+  	padding-top: 10px;
+  	margin-top: 18px;
+}
+
+.button-line button {
+  	margin-left: 5px;
+}
+
+.popup-icon {
+  	margin: 0;
+  	font-size: 48pt;
+  	text-align: center;
+}
+
+
+.standard-button {
+	font-family: inherit, serif;
+	padding: 10px;
+	font-size: 12pt;
+  	border: 1px solid var(--btnBG);
+  	cursor: pointer;
+ 	color: var(--btnText);
+  	background-color: var(--btnBG);
+  	border-radius: 2px;
+  	outline: none;
+}
