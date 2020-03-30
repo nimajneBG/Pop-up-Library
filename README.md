@@ -25,14 +25,13 @@ This is a simple "vanilla" JS and CSS Popup library, you don't need special HTML
 
   p.create().then(function(result) {
 
-    if (result == "ok") { 
+    if (result == "ok") {
       //What should happen if ok was pressed
     } else if (result == "cancel") {
       //What should happen if cancel was pressed
     } else if (result == "custom") {
       //What should happen if the custom button was pressed
     }
-        
   }, function(err) {
     console.log(err); //What should happen if something goes wrong
   });
