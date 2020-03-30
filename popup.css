@@ -66,7 +66,7 @@ Change it! Go to ":root" and change only the variables
 
 
 .standard-button {
-	font-family: inherit, serif;
+	font-family: inherit, sans-serif;
 	padding: 10px;
 	font-size: 12pt;
   	border: 1px solid var(--btnBG);
