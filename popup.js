@@ -25,20 +25,20 @@ class Popup {
 
   create() {
 
-    //Fehlererkennung
+    //Error detection
     if (this.input.ok != true && this.input.cancel != true && this.input.custom != true) {
       console.error("At least one sort of button have to be selected.");
       return 1;
     }
 
 
-    //Hintergrund erstellen
+    //Create background
     this.popupBg = document.createElement("DIV");
     this.popupBg.classList.add("popup-bg");
     document.body.appendChild(this.popupBg);
 
 
-    //Popup erstellen
+    //Create pop-up
     this.popup = document.createElement("DIV");
     this.popup.classList.add("popup");
     this.popupBg.appendChild(this.popup);
@@ -62,7 +62,7 @@ class Popup {
 
 
   createButtons() {
-    //Buttons
+    //Create buttons
     var buttonLine = document.createElement("DIV");
     buttonLine.classList.add("button-line");
     this.popup.appendChild(buttonLine);
