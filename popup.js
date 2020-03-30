@@ -1,42 +1,4 @@
-/*
-
-Library for pop-ups that look much nicer than alert()
-© by Benjamin Grau
-
-
-Usage:
-
-
-<!--Include the CSS-->
-<link rel="stylesheet" href="popup.css">
-
-<!--Include the library-->
-<script src="popup.js"></script>
-
-<!--Create Popup-->
-<script type="text/javascript">
-  var p = new Popup({"message" : "Lorem ipsum dolor sit amet",
-    "ok" : true,
-    "cancel" : true,
-    "custom" : false,
-    "text" : "custom btn text",
-    "icon" : "an emoji as icon 📣"
-  });
-
-  p.create().then(function(result) {
-
-    if (result == "ok") {
-      //What should happen if ok was pressed
-    } else if (result == "cancel") {
-      //What should happen if cancel was pressed
-    } else if (result == "custom") {
-      //What should happen if the custom button was pressed
-    }
-  }, function(err) {
-    console.log(err); //What should happen if something goes wrong
-  });
-</script>
-*/
+// © by Benjamin Grau
 
 class Popup {
 
