@@ -4,16 +4,16 @@ Library for pop-ups that look much nicer than alert()
 This is a simple "vanilla" JS and CSS Pop-up library, you don't need special HTML because it is pure JS and CSS.
 
 ## Usage:
-
+### Include the library:
 ```HTML
 <!--Include the CSS-->
 <link rel="stylesheet" href="pop-up.css">
-```
 
-```HTML
 <!--Include the library-->
 <script src="pop-up.js"></script>
-
+```
+### Create a pop-up:
+```HTML
 <!--Create Pop-up-->
 <script type="text/javascript">
   var p = new PopUp({"message" : "Lorem ipsum dolor sit amet",
