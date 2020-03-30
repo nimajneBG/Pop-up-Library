@@ -5,6 +5,10 @@ This is a simple "vanilla" JS CSS Popup libary, you don't need special HTML it i
 ## Using:
 
 ```HTML
+<link rel="stylesheet" href="popup.css">
+```
+
+```HTML
 <!--Include the libary-->
 <script src="popup.js"></script>
 
