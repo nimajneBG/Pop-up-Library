@@ -16,8 +16,8 @@ Using:
   p = new Popup({"message" : "Lorem ipsum dolor sit amet",
     "ok" : true,
     "cancel" : true,
-    "coustom" : false,
-    "text" : "coustom btn text",
+    "custom" : false,
+    "text" : "custom btn text",
     "icon" : "an emoji as icon 📣"
   });
 
@@ -34,7 +34,7 @@ class Popup {
     this.popup;
     this.btnOk;
     this.btnCancel;
-    this.btnCoustom;
+    this.btncustom;
     this.click;
     console.table(this.input);
   }
@@ -42,12 +42,11 @@ class Popup {
   create() {
 
     //Fehlererkennung
-    if (this.input.ok != true && this.input.cancel != true && this.input.coustom != true) {
+    if (this.input.ok != true && this.input.cancel != true && this.input.custom != true) {
       console.error("At least one sort of button have to be selected.");
       return 1;
     }
 
-    console.log(this);
 
     //Hintergrund erstellen
     this.popupBg = document.createElement("DIV");
@@ -73,20 +72,7 @@ class Popup {
 
     this.createButtons();
 
-    var test;
-
-    console.log(this.events().then(function(result) {
-      test = result;
-      console.log("test");
-      return result;
-    }, function(err) {
-      console.log(err); // Error: "It broke"
-    }));
-
-    console.log(test);
-
-
-    //this.close();
+    return this.events();
 
   }
 
@@ -109,11 +95,11 @@ class Popup {
       this.btnCancel.classList.add("standard-button");
       buttonLine.appendChild(this.btnCancel);
     }
-    if (this.input.coustom == true) {
-      this.btnCoustom = document.createElement("BUTTON");
-      this.btnCoustom.innerHTML = this.input.text;
-      this.btnCoustom.classList.add("standard-button");
-      buttonLine.appendChild(this.btnCoustom);
+    if (this.input.custom == true) {
+      this.btncustom = document.createElement("BUTTON");
+      this.btncustom.innerHTML = this.input.text;
+      this.btncustom.classList.add("standard-button");
+      buttonLine.appendChild(this.btncustom);
     }
 
   }
@@ -130,8 +116,8 @@ class Popup {
     const inBtnOk = this.input.ok;
     const btnCancel = this.btnCancel;
     const inBtnCancel = this.input.cancel;
-    const btnCoustom = this.btnCoustom;
-    const inBtnCoustom = this.input.coustom;
+    const btnCustom = this.btncustom;
+    const inBtnCustom = this.input.custom;
 
     var promise = new Promise(function(resolve, reject) {
       if (inBtnOk == true) {
@@ -148,13 +134,13 @@ class Popup {
         }
       }
 
-      if (inBtnCoustom == true) {
-        btnCoustom.onclick = () => {
+      if (inBtnCustom == true) {
+        btnCustom.onclick = () => {
           bg.remove();
-          resolve("coustom");
+          resolve("custom");
         }
       }
-      if (inBtnCoustom != true && inBtnOk != true && inBtnCancel != true) {
+      if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
         reject(Error("It broke"));
       }
 

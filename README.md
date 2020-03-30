@@ -1,6 +1,6 @@
 # Vanilla JS and CSS Popup libary
 
-This is a simple "vanilla" JS CSS Popup libary, you don't need special HTML it is pure JS and CSS.
+This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML it is pure JS and CSS.
 
 ## Using:
 
@@ -10,15 +10,27 @@ This is a simple "vanilla" JS CSS Popup libary, you don't need special HTML it i
 
 <!--Create Popup-->
 <script type="text/javascript">
-  p = new Popup({"message" : "Lorem ipsum dolor sit amet",
+  var p = new Popup({"message" : "Lorem ipsum dolor sit amet",
     "ok" : true,
     "cancel" : true,
-    "coustom" : false,
-    "text" : "coustom btn text",
+    "custom" : false,
+    "text" : "custom btn text",
     "icon" : "an emoji as icon 📣"
   });
 
-  p.create();
+  p.create().then(function(result) {
+
+    if (result == "ok") { 
+      //What should happen if ok was pressed
+    } else if (result == "canel") { 
+      //What should happen if cancel was pressed
+    } else if (result == "custom") {
+      //What should happen if the custom button was pressed
+    }
+        
+  }, function(err) {
+    console.log(err); //What should happen if something goes wrong
+  });
 </script>
 ```
 
