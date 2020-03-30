@@ -45,7 +45,7 @@ You can customize the content of the Pop-up via the JSON String at `new PopUp({.
 
 If you don't like the look of the pop-ups, you can write your own CSS, or if you only don't like the color theme, you can go to the `:root` Element in the CSS and change the color variables.
 ```CSS
-/* Colortheme */
+/* Color theme */
 :root {
 	--popUpBG: rgba(26, 26, 26, 0.7);
 	--popUpWindowBG: #fff;
