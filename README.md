@@ -1,7 +1,7 @@
-# Vanilla JS and CSS Popup library
+# Vanilla JS and CSS Pop-up library
 Library for pop-ups that look much nicer than alert()
 
-This is a simple "vanilla" JS and CSS Popup library, you don't need special HTML because it is pure JS and CSS.
+This is a simple "vanilla" JS and CSS Pop-up library, you don't need special HTML because it is pure JS and CSS.
 
 ## Usage:
 
@@ -14,7 +14,7 @@ This is a simple "vanilla" JS and CSS Popup library, you don't need special HTML
 <!--Include the library-->
 <script src="popup.js"></script>
 
-<!--Create Popup-->
+<!--Create Pop-up-->
 <script type="text/javascript">
   var p = new Popup({"message" : "Lorem ipsum dolor sit amet",
     "ok" : true,
@@ -41,9 +41,9 @@ This is a simple "vanilla" JS and CSS Popup library, you don't need special HTML
 
 ## Customization
 
-You can customize the conntent of the Popup via the JSON String at `new Popup({...})`
+You can customize the content of the Pop-up via the JSON String at `new Popup({...})`
 
-If you don't like the look of the popups, you can write your own CSS, or if you only don't like the color theme, you can go to the `:root` Element in the CSS and change the color variables.
+If you don't like the look of the pop-ups, you can write your own CSS, or if you only don't like the color theme, you can go to the `:root` Element in the CSS and change the color variables.
 ```CSS
 /* Colortheme */
 :root {
