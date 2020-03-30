@@ -16,12 +16,13 @@ This is a simple "vanilla" JS and CSS Pop-up library, you don't need special HTM
 ```HTML
 <!--Create Pop-up-->
 <script type="text/javascript">
-  var p = new PopUp({"message" : "Lorem ipsum dolor sit amet",
-    "ok" : true,
-    "cancel" : true,
-    "custom" : false,
-    "text" : "custom btn text",
-    "icon" : "an emoji as icon 📣"
+  var p = new PopUp({
+    "message" : "Lorem ipsum dolor sit amet", //Set the message in the pop-up
+    "ok" : true, //Set if there should be a OK button
+    "cancel" : true, //Set if there should be a cancel button
+    "custom" : false, //Set if there should be a custom button
+    "text" : "custom button text", //Set the text for your custom button
+    "icon" : "📣" //Set the emoji which should be used as icon
   });
 
   p.create().then(function(result) {
