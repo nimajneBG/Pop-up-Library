@@ -1,4 +1,5 @@
 # Vanilla JS and CSS Popup library
+Library for pop-ups that look much nicer than alert()
 
 This is a simple "vanilla" JS and CSS Popup library, you don't need special HTML because it is pure JS and CSS.
 
