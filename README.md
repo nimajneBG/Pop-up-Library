@@ -1,6 +1,6 @@
-# Vanilla JS and CSS Popup libary
+# Vanilla JS and CSS Popup library
 
-This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML because it is pure JS and CSS.
+This is a simple "vanilla" JS and CSS Popup library, you don't need special HTML because it is pure JS and CSS.
 
 ## Usage:
 
@@ -10,7 +10,7 @@ This is a simple "vanilla" JS and CSS Popup libary, you don't need special HTML 
 ```
 
 ```HTML
-<!--Include the libary-->
+<!--Include the library-->
 <script src="popup.js"></script>
 
 <!--Create Popup-->

@@ -8,7 +8,7 @@ Libary for popups they look much nicer than alert()
 Using:
 
 
-<!--Include the libary-->
+<!--Include the library-->
 <script src="popup.js"></script>
 
 <!--Create Popup-->
