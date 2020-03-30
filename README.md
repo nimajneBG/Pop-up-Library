@@ -56,4 +56,4 @@ If you don't like the look of the pop-ups, you can write your own CSS, or if you
 ```
 
 ---
-© by Benjamin Grau 👌
+Copyright © 2020 Benjamin Grau & Gregor Parzefall (MIT license)
