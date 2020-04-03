@@ -76,5 +76,12 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
  	color: var(--btnText);
   	background-color: var(--btnBG);
   	border-radius: 2px;
-  	outline: none;
+	outline: none;  
+}
+
+p.popup-close {
+	margin: 0;
+	text-align: right;
+	cursor: pointer;
+	font-family: sans-serif;
 }

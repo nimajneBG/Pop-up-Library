@@ -19,7 +19,7 @@ class PopUp {
     this.btnOk;
     this.btnCancel;
     this.btnCustom;
-    this.click;
+    this.closeX;
     console.table(this.input);
   }
 
@@ -43,6 +43,15 @@ class PopUp {
     this.popUp.classList.add("pop-up");
     this.popUpBg.appendChild(this.popUp);
 
+    //Close x
+    if (this.input.close == true) {
+      this.closeX = document.createElement("P");
+      this.closeX.classList.add("popup-close");
+      this.closeX.innerHTML = '<i class="icono-cross">X</i>';
+      this.popUp.appendChild(this.closeX);
+    }
+
+    //Icon
     if (this.input.icon != false) {
       var icon = document.createElement("P");
       icon.classList.add("pop-up-icon");
@@ -50,10 +59,12 @@ class PopUp {
       this.popUp.appendChild(icon);
     }
 
+    //Text
     var popUpText = document.createElement("P");
     popUpText.innerHTML = this.input.message;
     this.popUp.appendChild(popUpText);
 
+    //Buttons
     this.createButtons();
 
     return this.events();
@@ -102,8 +113,16 @@ class PopUp {
     const inBtnCancel = this.input.cancel;
     const btnCustom = this.btnCustom;
     const inBtnCustom = this.input.custom;
+    const closeX = this.closeX;
+    const inCloseX = this.input.close;
 
     var promise = new Promise(function(resolve, reject) {
+      if (inCloseX == true) {
+        closeX.onclick = () => {
+          bg.remove();
+        }
+      }
+
       if (inBtnOk == true) {
         btnOk.onclick = () => {
           bg.remove();
