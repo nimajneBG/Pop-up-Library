@@ -14,12 +14,12 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 /* Color theme */
 :root {
-	--popUpBG: rgba(26, 26, 26, 0.7);
-	--popUpWindowBG: #fff;
-	--btnBG: #3498db;
-	--btnText: #fff;
-	--textColor: #000;
-	--buttonLineColor: lightgrey;
+	--popUpBg: rgba(26, 26, 26, 0.7);
+	--popUpWindowBg: #fff;
+	--popUpBtnLineColor: lightgrey;
+	--popUpBtnBg: #3498db;
+	--popUpBtnTextColor: #fff;
+	--popUpTextColor: #000;
 }
 
 .pop-up-bg {
@@ -32,7 +32,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	z-index: 4;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--popUpBG);
+	background-color: var(--popUpBg);
 }
 
 .pop-up {
@@ -40,7 +40,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	min-width: 200px;
 	height: auto;
 	max-height: 300px;
-	background-color: var(--popUpWindowBG);
+	background-color: var(--popUpWindowBg);
 	text-align: left;
 	margin: 15px !important;
 	padding-left: 15px;
@@ -49,40 +49,39 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	padding-bottom: 10px;
 	border-radius: 2px;
 	z-index: 5;
-	color: var(--textColor);
+	color: var(--popUpTextColor);
 }
 
-.button-line {
+.pop-up .button-line {
 	text-align: right;
-	border-top: 1px solid var(--buttonLineColor);
+	border-top: 1px solid var(--popUpBtnLineColor);
 	padding-top: 10px;
 	margin-top: 18px;
 }
 
-.button-line button {
+.pop-up .button-line button {
 	margin-left: 5px;
 }
 
-.pop-up-icon {
+.pop-up .pop-up-icon {
 	margin: 0;
 	font-size: 48pt;
 	text-align: center;
 }
 
-
-.standard-button {
+.pop-up .standard-button {
 	font-family: inherit;
 	padding: 10px;
 	font-size: 12pt;
-	border: 1px solid var(--btnBG);
+	border: 1px solid var(--popUpBtnBg);
 	cursor: pointer;
-	color: var(--btnText);
-	background-color: var(--btnBG);
+	color: var(--popUpBtnTextColor);
+	background-color: var(--popUpBtnBg);
 	border-radius: 2px;
 	outline: none;
 }
 
-div.popup-close {
+.pop-up div.popup-close {
 	text-align: right;
 	cursor: pointer;
 	font-family: sans-serif;
@@ -91,7 +90,7 @@ div.popup-close {
 	transition: color 0.2s, transform 0.2s;
 }
 
-div.popup-close:hover {
+.pop-up div.popup-close:hover {
 	transform: scale(1.1);
 	color: black;
 }
