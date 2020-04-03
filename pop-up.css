@@ -20,6 +20,8 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	--popUpBtnHoverBg: #2e80b7;
 	--popUpBtnTextColor: #fff;
 	--popUpTextColor: #000;
+	--popUpCloseColor: lightgrey;
+	--popUpCloseHoverColor: black;
 }
 
 .pop-up-bg {
@@ -50,6 +52,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	border-radius: 2px;
 	z-index: 5;
 	color: var(--popUpTextColor);
+	font-family: sans-serif;
 }
 
 .pop-up .button-line {
@@ -91,18 +94,18 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 .pop-up div.popup-close {
 	text-align: right;
 	cursor: pointer;
-	font-family: sans-serif;
 	float: right;
-	transition: transform 0.2s;
+	transition: transform 0.2s, color 0.2s;
+	color: var(--popUpCloseColor);
 }
 .pop-up div.popup-close i.cross {
 	display: inline-block;
 	width: 1em;
 	height: 1em;
-	background: linear-gradient(45deg,transparent 45%, var(--popUpBtnLineColor) 45%, var(--popUpBtnLineColor) 55%, transparent 55%),linear-gradient(135deg,transparent 45%, var(--popUpBtnLineColor) 45%, var(--popUpBtnLineColor) 55%, transparent 55%);
+	background: linear-gradient(45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%), linear-gradient(135deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%);
 }
 
 .pop-up div.popup-close:hover {
 	transform: scale(1.1);
-	--popUpBtnLineColor: black;
+	color: var(--popUpCloseHoverColor);
 }
