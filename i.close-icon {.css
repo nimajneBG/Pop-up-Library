@@ -1,0 +1,6 @@
+i.close-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background: linear-gradient(45deg,transparent 45%, var(--textColor) 45%, var(--textColor) 55%, transparent 55%),linear-gradient(135deg,transparent 45%, var(--textColor) 45%, var(--textColor) 55%, transparent 55%);
+}
