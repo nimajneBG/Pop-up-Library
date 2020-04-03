@@ -54,6 +54,7 @@ If you don't like the look of the pop-ups, you can write your own CSS, or if you
 	--popUpWindowBg: #fff;
 	--popUpBtnLineColor: lightgrey;
 	--popUpBtnBg: #3498db;
+	--popUpBtnHoverBg: #2e80b7;
 	--popUpBtnTextColor: #fff;
 	--popUpTextColor: #000;
 }
