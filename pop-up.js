@@ -45,9 +45,9 @@ class PopUp {
 
     //Close x
     if (this.input.close == true) {
-      this.closeX = document.createElement("P");
+      this.closeX = document.createElement("DIV");
       this.closeX.classList.add("popup-close");
-      this.closeX.innerHTML = '<i class="icono-cross">X</i>';
+      this.closeX.innerHTML = '<i class="icono-cross"></i>';
       this.popUp.appendChild(this.closeX);
     }
 
