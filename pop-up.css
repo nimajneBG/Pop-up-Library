@@ -86,4 +86,11 @@ div.popup-close {
 	cursor: pointer;
 	font-family: sans-serif;
 	float: right;
+	color: #555;
+	transition: color 0.2s, transform 0.2s;
+}
+
+div.popup-close:hover {
+	transform: scale(1.1);
+	color: black;
 }
