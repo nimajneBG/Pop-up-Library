@@ -97,6 +97,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	float: right;
 	transition: transform 0.2s, color 0.2s;
 	color: var(--popUpCloseColor);
+	margin: 5px 5px 0 0;
 }
 .pop-up div.popup-close i.cross {
 	display: inline-block;
