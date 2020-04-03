@@ -18,6 +18,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	--popUpWindowBg: #fff;
 	--popUpBtnLineColor: lightgrey;
 	--popUpBtnBg: #3498db;
+	--popUpBtnHoverBg: #2e80b7;
 	--popUpBtnTextColor: #fff;
 	--popUpTextColor: #000;
 }
@@ -79,6 +80,12 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	background-color: var(--popUpBtnBg);
 	border-radius: 2px;
 	outline: none;
+	transition: background-color 0.2s, border-color 0.2s;
+}
+
+.pop-up .standard-button:hover {
+	background-color: var(--popUpBtnHoverBg);
+	border-color: var(--popUpBtnHoverBg);
 }
 
 .pop-up div.popup-close {
