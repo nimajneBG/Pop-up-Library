@@ -53,6 +53,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	z-index: 5;
 	color: var(--popUpTextColor);
 	font-family: sans-serif;
+	animation: zoom 0.2s;
 }
 
 .pop-up .button-line {
@@ -109,4 +110,14 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 .pop-up div.popup-close:hover {
 	transform: scale(1.1);
 	color: var(--popUpCloseHoverColor);
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0.8)
+	}
+
+	to {
+		transform: scale(1)
+	}
 }
