@@ -20,7 +20,6 @@ class PopUp {
     this.btnCancel;
     this.btnCustom;
     this.closeX;
-    console.table(this.input);
   }
 
   create() {
