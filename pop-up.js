@@ -153,3 +153,40 @@ class PopUp {
   }
 
 }
+
+//Predefined functions for easier usage
+function popUpInfo(message) {
+  var p = new PopUp({
+    "message" : message,
+    "ok" : true,
+    "cancel" : false,
+    "custom" : false,
+    "close" : true,
+    "icon" : "📣"
+  });
+  p.create().then(function(result) {}, function(err) {console.log(err);});
+}
+
+function popUpError(message) {
+  var p = new PopUp({
+    "message" : message,
+    "ok" : true,
+    "cancel" : false,
+    "custom" : false,
+    "close" : true,
+    "icon" : "🛑"
+  });
+  p.create().then(function(result) {}, function(err) {console.log(err);});
+}
+
+function popUpConfirm(message) {
+  var p = new PopUp({
+    "message" : message,
+    "ok" : true,
+    "cancel" : true,
+    "custom" : false,
+    "close" : false,
+    "icon" : "❓"
+  });
+  return p.create();
+}
