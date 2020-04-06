@@ -5,8 +5,8 @@ This is a simple "vanilla" JS and CSS Pop-up library.
 
 You don't need any special HTML, because the required HTML is generated automatically when you create a pop-up.
 
-## Usage:
-### Include the library:
+## Usage
+### Include the library
 ```HTML
 <!--Include the CSS-->
 <link rel="stylesheet" href="pop-up.css">
@@ -14,7 +14,17 @@ You don't need any special HTML, because the required HTML is generated automati
 <!--Include the library-->
 <script src="pop-up.js"></script>
 ```
-### Create a pop-up:
+
+### Use the predefined functions
+```JavaScript
+popUpInfo("Message"); //Displays an information pop-up with an OK button and a close button.
+popUpError("Error message"); //Displays an error pop-up with an OK button and a close button.
+popUpConfirm("Question"); 
+/*Displays an confirm pop-up with an OK button and a cancel button.
+Returns a promise which gets fulfilled when the user clicks one of the buttons.
+The promise returns "ok" or "cancel".*/
+```
+### Create a custom pop-up
 ```HTML
 <!--Create Pop-up-->
 <script type="text/javascript">
@@ -41,7 +51,6 @@ You don't need any special HTML, because the required HTML is generated automati
   });
 </script>
 ```
-
 ## Customization
 
 You can customize the content of the Pop-up via the object parameter at `new PopUp({...})`
