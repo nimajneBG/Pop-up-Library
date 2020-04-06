@@ -38,7 +38,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 }
 
 .pop-up-bg ~ .pop-up-bg {
-	background-color: transparent;
+	display: none;
 }
 
 .pop-up {
