@@ -37,6 +37,10 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	background-color: var(--popUpBg);
 }
 
+.pop-up-bg ~ .pop-up-bg {
+	background-color: transparent;
+}
+
 .pop-up {
 	max-width: 500px;
 	min-width: 200px;
