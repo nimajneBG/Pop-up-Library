@@ -59,9 +59,9 @@ class PopUp {
     }
 
     //Text
-    var popUpText = document.createElement("P");
-    popUpText.innerHTML = this.input.message;
-    this.popUp.appendChild(popUpText);
+    this.popUpText = document.createElement("P");
+    this.popUpText.innerHTML = this.input.message;
+    this.popUp.appendChild(this.popUpText);
 
     //Buttons
     this.createButtons();
@@ -102,7 +102,10 @@ class PopUp {
     this.popUpBg.remove();
   }
 
-
+  setText(text = String) {
+    this.input.message = text;
+    this.popUpText = this.input.message;
+  }
 
   events() {
     const bg = this.popUpBg;
