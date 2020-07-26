@@ -104,7 +104,7 @@ class PopUp {
 
   setText(text = String) {
     this.input.message = text;
-    this.popUpText = this.input.message;
+    this.popUpText.innerHTML = this.input.message;
   }
 
   events() {
