@@ -24,20 +24,20 @@ class PopUp {
 
   create() {
 
-    //Error detection
+    // Error detection
     if (this.input.ok != true && this.input.cancel != true && this.input.custom != true) {
       console.error("At least one sort of button have to be selected.");
       return 1;
     }
 
 
-    //Create background
+    // Create background
     this.popUpBg = document.createElement("DIV");
     this.popUpBg.classList.add("pop-up-bg");
     document.body.appendChild(this.popUpBg);
 
 
-    //Create pop-up
+    // Create pop-up
     this.popUp = document.createElement("DIV");
     this.popUp.classList.add("pop-up");
     this.popUpBg.appendChild(this.popUp);
@@ -50,7 +50,7 @@ class PopUp {
       this.popUp.appendChild(this.closeX);
     }
 
-    //Icon
+    // Icon
     if (this.input.icon != false) {
       var icon = document.createElement("P");
       icon.classList.add("pop-up-icon");
@@ -58,12 +58,12 @@ class PopUp {
       this.popUp.appendChild(icon);
     }
 
-    //Text
+    // Text
     this.popUpText = document.createElement("P");
     this.popUpText.innerHTML = this.input.message;
     this.popUp.appendChild(this.popUpText);
 
-    //Buttons
+    // Buttons
     this.createButtons();
 
     return this.events();
@@ -72,24 +72,24 @@ class PopUp {
 
 
   createButtons() {
-    //Create buttons
+    // Create buttons
     var buttonLine = document.createElement("DIV");
     buttonLine.classList.add("button-line");
     this.popUp.appendChild(buttonLine);
 
-    if (this.input.ok == true) {
+    if (this.input.ok) {
       this.btnOk = document.createElement("BUTTON");
       this.btnOk.innerHTML = "OK";
       this.btnOk.classList.add("standard-button");
       buttonLine.appendChild(this.btnOk);
     }
-    if (this.input.cancel == true) {
+    if (this.input.cancel) {
       this.btnCancel = document.createElement("BUTTON");
       this.btnCancel.innerHTML = "Cancel";
       this.btnCancel.classList.add("standard-button");
       buttonLine.appendChild(this.btnCancel);
     }
-    if (this.input.custom == true) {
+    if (this.input.custom) {
       this.btnCustom = document.createElement("BUTTON");
       this.btnCustom.innerHTML = this.input.text;
       this.btnCustom.classList.add("standard-button");
@@ -157,7 +157,35 @@ class PopUp {
 
 }
 
-//Predefined functions for easier usage
+
+// Toast Pop up
+class Toast {
+  constructor(args) {
+    this.input = args;
+    this.toast;
+  }
+
+  create() {
+    // Error detection
+    if (this.input.ok != true && this.input.cancel != true && this.input.custom != true && this.input.close != true) {
+      console.error("At least one sort of button have to be selected.");
+      return false;
+    }
+
+    // Toast
+    this.toast = document.createElement('DIV');
+    this.toast.classList.add('toast');
+    document.body.appendChild(this.toast);
+
+    // Text
+    this.toastText = document.createElement('P');
+    this.toastText.innerHTML = this.input.message;
+  }
+}
+
+
+
+// Predefined functions for easier usage
 function popUpInfo(message) {
   var p = new PopUp({
     "message" : message,
