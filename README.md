@@ -1,6 +1,6 @@
 # Vanilla JS and CSS Pop-up library
 
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://lbesson.mit-license.org/)&nbsp;&nbsp;[![GitHub release](https://img.shields.io/github/release/nimajneBG/Pop-up-Library.svg?style=for-the-badge)](https://github.com/nimajneBG/to-do)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://lbesson.mit-license.org/)&nbsp;&nbsp;[![GitHub release](https://img.shields.io/github/release/nimajneBG/Pop-up-Library.svg?style=for-the-badge)](https://github.com/nimajneBG/Pop-up-Library)
 
 Library for pop-ups that look much nicer than `alert()`
 
