@@ -166,20 +166,21 @@ class Toast {
   }
 
   create() {
-    // Error detection
-    if (this.input.ok != true && this.input.cancel != true && this.input.custom != true && this.input.close != true) {
-      console.error("At least one sort of button have to be selected.");
-      return false;
-    }
+    // Toast Background
+    let toastBg = document.createElement('DIV');
+    toastBg.classList.add('toast-bg');
+    document.body.appendChild(toastBg);
 
     // Toast
     this.toast = document.createElement('DIV');
     this.toast.classList.add('toast');
-    document.body.appendChild(this.toast);
+    toastBg.appendChild(this.toast);
 
     // Text
     this.toastText = document.createElement('P');
+    this.toastText.classList.add('toast-text');
     this.toastText.innerHTML = this.input.message;
+    this.toast.appendChild(this.toastText);
   }
 }
 
