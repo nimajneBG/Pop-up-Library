@@ -2,9 +2,11 @@
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://lbesson.mit-license.org/)&nbsp;&nbsp;[![GitHub release](https://img.shields.io/github/release/nimajneBG/Pop-up-Library.svg?style=for-the-badge)](https://github.com/nimajneBG/Pop-up-Library)
 
-Library for pop-ups and toasts that look much nicer than `alert()`
-
+Library for pop-ups and toasts that look much nicer than `alert()`.
+<!--Hello-->
 This is a simple "vanilla" JS and CSS Pop-up library.
+
+Beside "normal" Pop-ups you can also create Toast Pop-ups.
 
 You don't need any special HTML, because the required HTML is generated automatically when you create a pop-up or toast.
 
@@ -99,7 +101,8 @@ The colors are the same for the toasts and the pop-ups.
 	--popUpBtnBg: #3498db;
 	--popUpBtnHoverBg: #2e80b7;
 	--popUpBtnTextColor: #fff;
-	--popUpTextColor: #000;
+  --popUpTextColor: #000;
+  --shadow: #ccc;
 }
 ```
 
