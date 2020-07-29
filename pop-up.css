@@ -38,7 +38,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	background-color: var(--popUpBg);
 }
 
-.pop-up-bg ~ .pop-up-bg {
+.pop-up-bg~.pop-up-bg {
 	display: none;
 }
 
@@ -49,11 +49,12 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	width: 100%;
 }
 
-.toast-bg ~ .toast-bg {
+.toast-bg~.toast-bg {
 	display: none;
 }
 
-.pop-up, .toast {
+.pop-up,
+.toast {
 	min-width: 200px;
 	height: auto;
 	background-color: var(--popUpWindowBg);
@@ -114,7 +115,8 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	user-select: none;
 }
 
-.pop-up .standard-button, .toast .standard-button {
+.pop-up .standard-button,
+.toast .standard-button {
 	font-family: inherit;
 	padding: 10px;
 	font-size: 12pt;
@@ -128,7 +130,8 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	margin-left: 5px;
 }
 
-.pop-up .standard-button:hover, .toast .standard-button:hover {
+.pop-up .standard-button:hover,
+.toast .standard-button:hover {
 	background-color: var(--popUpBtnHoverBg);
 	border-color: var(--popUpBtnHoverBg);
 }
@@ -139,13 +142,15 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	margin: 5px 5px 0 0;
 }
 
-.pop-up div.popup-close, .toast i.cross {
+.pop-up div.popup-close,
+.toast i.cross {
 	cursor: pointer;
 	transition: transform 0.2s, color 0.2s;
 	color: var(--popUpCloseColor);
 }
 
-.pop-up div.popup-close i.cross, .toast i.cross {
+.pop-up div.popup-close i.cross,
+.toast i.cross {
 	width: 1em;
 	height: 1em;
 	background: linear-gradient(45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%), linear-gradient(135deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%);

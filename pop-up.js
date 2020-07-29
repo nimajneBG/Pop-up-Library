@@ -12,282 +12,282 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 class PopUp {
 
-  constructor(x) {
-    this.input = x;
-    this.popUpBg;
-    this.popUp;
-    this.btnOk;
-    this.btnCancel;
-    this.btnCustom;
-    this.closeX;
-  }
+	constructor(x) {
+		this.input = x;
+		this.popUpBg;
+		this.popUp;
+		this.btnOk;
+		this.btnCancel;
+		this.btnCustom;
+		this.closeX;
+	}
 
-  create() {
+	create() {
 
-    // Error detection
-    if (this.input.ok != true && this.input.cancel != true && this.input.custom != true) {
-      console.error("At least one sort of button have to be selected.");
-      return 1;
-    }
-
-
-    // Create background
-    this.popUpBg = document.createElement("DIV");
-    this.popUpBg.classList.add("pop-up-bg");
-    document.body.appendChild(this.popUpBg);
+		// Error detection
+		if (this.input.ok != true && this.input.cancel != true && this.input.custom != true) {
+			console.error("At least one sort of button have to be selected.");
+			return 1;
+		}
 
 
-    // Create pop-up
-    this.popUp = document.createElement("DIV");
-    this.popUp.classList.add("pop-up");
-    this.popUpBg.appendChild(this.popUp);
-
-    // Close x
-    if (this.input.close == true) {
-      this.closeX = document.createElement("DIV");
-      this.closeX.classList.add("popup-close");
-      this.closeX.innerHTML = '<i class="cross"></i>';
-      this.popUp.appendChild(this.closeX);
-    }
-
-    // Icon
-    if (this.input.icon != false) {
-      var icon = document.createElement("P");
-      icon.classList.add("pop-up-icon");
-      icon.innerHTML = this.input.icon;
-      this.popUp.appendChild(icon);
-    }
-
-    // Text
-    this.popUpText = document.createElement("P");
-    this.popUpText.innerHTML = this.input.message;
-    this.popUp.appendChild(this.popUpText);
-
-    // Buttons
-    this.createButtons();
-
-    return this.events();
-
-  }
+		// Create background
+		this.popUpBg = document.createElement("DIV");
+		this.popUpBg.classList.add("pop-up-bg");
+		document.body.appendChild(this.popUpBg);
 
 
-  createButtons() {
-    // Create buttons
-    var buttonLine = document.createElement("DIV");
-    buttonLine.classList.add("button-line");
-    this.popUp.appendChild(buttonLine);
+		// Create pop-up
+		this.popUp = document.createElement("DIV");
+		this.popUp.classList.add("pop-up");
+		this.popUpBg.appendChild(this.popUp);
 
-    // OK Button
-    if (this.input.ok) {
-      this.btnOk = document.createElement("BUTTON");
-      this.btnOk.innerHTML = "OK";
-      this.btnOk.classList.add("standard-button");
-      buttonLine.appendChild(this.btnOk);
-    }
+		// Close x
+		if (this.input.close == true) {
+			this.closeX = document.createElement("DIV");
+			this.closeX.classList.add("popup-close");
+			this.closeX.innerHTML = '<i class="cross"></i>';
+			this.popUp.appendChild(this.closeX);
+		}
 
-    // Cancel Button
-    if (this.input.cancel) {
-      this.btnCancel = document.createElement("BUTTON");
-      this.btnCancel.innerHTML = "Cancel";
-      this.btnCancel.classList.add("standard-button");
-      buttonLine.appendChild(this.btnCancel);
-    }
+		// Icon
+		if (this.input.icon != false) {
+			var icon = document.createElement("P");
+			icon.classList.add("pop-up-icon");
+			icon.innerHTML = this.input.icon;
+			this.popUp.appendChild(icon);
+		}
 
-    // Custom Button
-    if (this.input.custom) {
-      this.btnCustom = document.createElement("BUTTON");
-      this.btnCustom.innerHTML = this.input.text;
-      this.btnCustom.classList.add("standard-button");
-      buttonLine.appendChild(this.btnCustom);
-    }
+		// Text
+		this.popUpText = document.createElement("P");
+		this.popUpText.innerHTML = this.input.message;
+		this.popUp.appendChild(this.popUpText);
 
-  }
+		// Buttons
+		this.createButtons();
 
-  close() {
-    this.popUpBg.remove();
-  }
+		return this.events();
 
-  setText(text = String) {
-    this.input.message = text;
-    this.popUpText.innerHTML = this.input.message;
-  }
+	}
 
-  events() {
-    const bg = this.popUpBg;
-    const btnOk = this.btnOk;
-    const inBtnOk = this.input.ok;
-    const btnCancel = this.btnCancel;
-    const inBtnCancel = this.input.cancel;
-    const btnCustom = this.btnCustom;
-    const inBtnCustom = this.input.custom;
-    const closeX = this.closeX;
-    const inCloseX = this.input.close;
 
-    var promise = new Promise(function(resolve, reject) {
-      if (inCloseX == true) {
-        closeX.onclick = () => {
-          bg.remove();
-        }
-      }
+	createButtons() {
+		// Create buttons
+		var buttonLine = document.createElement("DIV");
+		buttonLine.classList.add("button-line");
+		this.popUp.appendChild(buttonLine);
 
-      if (inBtnOk == true) {
-        btnOk.onclick = () => {
-          bg.remove();
-          resolve("ok");
-        }
-      }
+		// OK Button
+		if (this.input.ok) {
+			this.btnOk = document.createElement("BUTTON");
+			this.btnOk.innerHTML = "OK";
+			this.btnOk.classList.add("standard-button");
+			buttonLine.appendChild(this.btnOk);
+		}
 
-      if (inBtnCancel == true) {
-        btnCancel.onclick = () => {
-          bg.remove();
-          resolve("cancel");
-        }
-      }
+		// Cancel Button
+		if (this.input.cancel) {
+			this.btnCancel = document.createElement("BUTTON");
+			this.btnCancel.innerHTML = "Cancel";
+			this.btnCancel.classList.add("standard-button");
+			buttonLine.appendChild(this.btnCancel);
+		}
 
-      if (inBtnCustom == true) {
-        btnCustom.onclick = () => {
-          bg.remove();
-          resolve("custom");
-        }
-      }
-      if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
-        reject(Error("It broke"));
-      }
+		// Custom Button
+		if (this.input.custom) {
+			this.btnCustom = document.createElement("BUTTON");
+			this.btnCustom.innerHTML = this.input.text;
+			this.btnCustom.classList.add("standard-button");
+			buttonLine.appendChild(this.btnCustom);
+		}
 
-    });
+	}
 
-    return promise;
+	close() {
+		this.popUpBg.remove();
+	}
 
-  }
+	setText(text = String) {
+		this.input.message = text;
+		this.popUpText.innerHTML = this.input.message;
+	}
+
+	events() {
+		const bg = this.popUpBg;
+		const btnOk = this.btnOk;
+		const inBtnOk = this.input.ok;
+		const btnCancel = this.btnCancel;
+		const inBtnCancel = this.input.cancel;
+		const btnCustom = this.btnCustom;
+		const inBtnCustom = this.input.custom;
+		const closeX = this.closeX;
+		const inCloseX = this.input.close;
+
+		var promise = new Promise(function (resolve, reject) {
+			if (inCloseX == true) {
+				closeX.onclick = () => {
+					bg.remove();
+				}
+			}
+
+			if (inBtnOk == true) {
+				btnOk.onclick = () => {
+					bg.remove();
+					resolve("ok");
+				}
+			}
+
+			if (inBtnCancel == true) {
+				btnCancel.onclick = () => {
+					bg.remove();
+					resolve("cancel");
+				}
+			}
+
+			if (inBtnCustom == true) {
+				btnCustom.onclick = () => {
+					bg.remove();
+					resolve("custom");
+				}
+			}
+			if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
+				reject(Error("It broke"));
+			}
+
+		});
+
+		return promise;
+
+	}
 
 }
 
 
 // Toast Pop up
 class Toast {
-  constructor(args) {
-    this.input = args;
-    this.toast;
-  }
+	constructor(args) {
+		this.input = args;
+		this.toast;
+	}
 
-  create() {
-    // Toast Background
-    this.toastBg = document.createElement('DIV');
-    this.toastBg.classList.add('toast-bg');
-    document.body.appendChild(this.toastBg);
+	create() {
+		// Toast Background
+		this.toastBg = document.createElement('DIV');
+		this.toastBg.classList.add('toast-bg');
+		document.body.appendChild(this.toastBg);
 
-    // Toast
-    this.toast = document.createElement('DIV');
-    this.toast.classList.add('toast');
-    this.toastBg.appendChild(this.toast);
+		// Toast
+		this.toast = document.createElement('DIV');
+		this.toast.classList.add('toast');
+		this.toastBg.appendChild(this.toast);
 
-    // Text
-    this.toastText = document.createElement('P');
-    this.toastText.classList.add('toast-text');
-    this.toastText.innerHTML = this.input.message;
-    this.toast.appendChild(this.toastText);
+		// Text
+		this.toastText = document.createElement('P');
+		this.toastText.classList.add('toast-text');
+		this.toastText.innerHTML = this.input.message;
+		this.toast.appendChild(this.toastText);
 
-    // Buttons
-    this.createButtons();
+		// Buttons
+		this.createButtons();
 
-    // Events
-    return this.events();
-  }
+		// Events
+		return this.events();
+	}
 
-  close() {
-    this.toastBg.remove();
-  }
+	close() {
+		this.toastBg.remove();
+	}
 
-  setText(text) {
-    this.input.message = text;
-    this.toastText.innerHTML = text;
-  }
+	setText(text) {
+		this.input.message = text;
+		this.toastText.innerHTML = text;
+	}
 
-  createButtons() {
-    // Create buttons
-    var buttonLine = document.createElement("DIV");
-    buttonLine.classList.add("button-line");
-    this.toast.appendChild(buttonLine);
+	createButtons() {
+		// Create buttons
+		var buttonLine = document.createElement("DIV");
+		buttonLine.classList.add("button-line");
+		this.toast.appendChild(buttonLine);
 
-    // OK Button
-    if (this.input.ok) {
-      this.btnOk = document.createElement("BUTTON");
-      this.btnOk.innerHTML = "OK";
-      this.btnOk.classList.add("standard-button");
-      buttonLine.appendChild(this.btnOk);
-    }
+		// OK Button
+		if (this.input.ok) {
+			this.btnOk = document.createElement("BUTTON");
+			this.btnOk.innerHTML = "OK";
+			this.btnOk.classList.add("standard-button");
+			buttonLine.appendChild(this.btnOk);
+		}
 
-    // Cancel Button
-    if (this.input.cancel) {
-      this.btnCancel = document.createElement("BUTTON");
-      this.btnCancel.innerHTML = "Cancel";
-      this.btnCancel.classList.add("standard-button");
-      buttonLine.appendChild(this.btnCancel);
-    }
+		// Cancel Button
+		if (this.input.cancel) {
+			this.btnCancel = document.createElement("BUTTON");
+			this.btnCancel.innerHTML = "Cancel";
+			this.btnCancel.classList.add("standard-button");
+			buttonLine.appendChild(this.btnCancel);
+		}
 
-    // Custom Button
-    if (this.input.custom) {
-      this.btnCustom = document.createElement("BUTTON");
-      this.btnCustom.innerHTML = this.input.text;
-      this.btnCustom.classList.add("standard-button");
-      buttonLine.appendChild(this.btnCustom);
-    }
+		// Custom Button
+		if (this.input.custom) {
+			this.btnCustom = document.createElement("BUTTON");
+			this.btnCustom.innerHTML = this.input.text;
+			this.btnCustom.classList.add("standard-button");
+			buttonLine.appendChild(this.btnCustom);
+		}
 
-    // Close x
-    if (this.input.close == true) {
-      this.closeX = document.createElement("i");
-      this.closeX.classList.add("cross");
-      buttonLine.appendChild(this.closeX);
-    }
-  }
+		// Close x
+		if (this.input.close == true) {
+			this.closeX = document.createElement("i");
+			this.closeX.classList.add("cross");
+			buttonLine.appendChild(this.closeX);
+		}
+	}
 
-  events() {
-    const bg = this.toastBg;
-    const btnOk = this.btnOk;
-    const inBtnOk = this.input.ok;
-    const btnCancel = this.btnCancel;
-    const inBtnCancel = this.input.cancel;
-    const btnCustom = this.btnCustom;
-    const inBtnCustom = this.input.custom;
-    const closeX = this.closeX;
-    const inCloseX = this.input.close;
+	events() {
+		const bg = this.toastBg;
+		const btnOk = this.btnOk;
+		const inBtnOk = this.input.ok;
+		const btnCancel = this.btnCancel;
+		const inBtnCancel = this.input.cancel;
+		const btnCustom = this.btnCustom;
+		const inBtnCustom = this.input.custom;
+		const closeX = this.closeX;
+		const inCloseX = this.input.close;
 
-    var promise = new Promise(function(resolve, reject) {
-      if (inCloseX == true) {
-        closeX.onclick = () => {
-          bg.remove();
-        }
-      }
+		var promise = new Promise(function (resolve, reject) {
+			if (inCloseX == true) {
+				closeX.onclick = () => {
+					bg.remove();
+				}
+			}
 
-      if (inBtnOk == true) {
-        btnOk.onclick = () => {
-          bg.remove();
-          resolve("ok");
-        }
-      }
+			if (inBtnOk == true) {
+				btnOk.onclick = () => {
+					bg.remove();
+					resolve("ok");
+				}
+			}
 
-      if (inBtnCancel == true) {
-        btnCancel.onclick = () => {
-          bg.remove();
-          resolve("cancel");
-        }
-      }
+			if (inBtnCancel == true) {
+				btnCancel.onclick = () => {
+					bg.remove();
+					resolve("cancel");
+				}
+			}
 
-      if (inBtnCustom == true) {
-        btnCustom.onclick = () => {
-          bg.remove();
-          resolve("custom");
-        }
-      }
-      if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
-        reject(Error("It broke"));
-      }
+			if (inBtnCustom == true) {
+				btnCustom.onclick = () => {
+					bg.remove();
+					resolve("custom");
+				}
+			}
+			if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
+				reject(Error("It broke"));
+			}
 
-    });
+		});
 
-    return promise;
+		return promise;
 
-  }
+	}
 
 }
 
@@ -295,37 +295,37 @@ class Toast {
 
 // Predefined functions for easier usage
 function popUpInfo(message) {
-  var p = new PopUp({
-    "message" : message,
-    "ok" : true,
-    "cancel" : false,
-    "custom" : false,
-    "close" : true,
-    "icon" : "📣"
-  });
-  p.create().then(function(result) {}, function(err) {console.log(err);});
+	var p = new PopUp({
+		"message": message,
+		"ok": true,
+		"cancel": false,
+		"custom": false,
+		"close": true,
+		"icon": "📣"
+	});
+	p.create().then(function (result) { }, function (err) { console.log(err); });
 }
 
 function popUpError(message) {
-  var p = new PopUp({
-    "message" : message,
-    "ok" : true,
-    "cancel" : false,
-    "custom" : false,
-    "close" : true,
-    "icon" : "🛑"
-  });
-  p.create().then(function(result) {}, function(err) {console.log(err);});
+	var p = new PopUp({
+		"message": message,
+		"ok": true,
+		"cancel": false,
+		"custom": false,
+		"close": true,
+		"icon": "🛑"
+	});
+	p.create().then(function (result) { }, function (err) { console.log(err); });
 }
 
 function popUpConfirm(message) {
-  var p = new PopUp({
-    "message" : message,
-    "ok" : true,
-    "cancel" : true,
-    "custom" : false,
-    "close" : false,
-    "icon" : "❓"
-  });
-  return p.create();
+	var p = new PopUp({
+		"message": message,
+		"ok": true,
+		"cancel": true,
+		"custom": false,
+		"close": false,
+		"icon": "❓"
+	});
+	return p.create();
 }
