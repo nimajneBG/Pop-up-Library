@@ -42,7 +42,7 @@ class PopUp {
     this.popUp.classList.add("pop-up");
     this.popUpBg.appendChild(this.popUp);
 
-    //Close x
+    // Close x
     if (this.input.close == true) {
       this.closeX = document.createElement("DIV");
       this.closeX.classList.add("popup-close");
@@ -77,18 +77,23 @@ class PopUp {
     buttonLine.classList.add("button-line");
     this.popUp.appendChild(buttonLine);
 
+    // OK Button
     if (this.input.ok) {
       this.btnOk = document.createElement("BUTTON");
       this.btnOk.innerHTML = "OK";
       this.btnOk.classList.add("standard-button");
       buttonLine.appendChild(this.btnOk);
     }
+
+    // Cancel Button
     if (this.input.cancel) {
       this.btnCancel = document.createElement("BUTTON");
       this.btnCancel.innerHTML = "Cancel";
       this.btnCancel.classList.add("standard-button");
       buttonLine.appendChild(this.btnCancel);
     }
+
+    // Custom Button
     if (this.input.custom) {
       this.btnCustom = document.createElement("BUTTON");
       this.btnCustom.innerHTML = this.input.text;
@@ -167,21 +172,123 @@ class Toast {
 
   create() {
     // Toast Background
-    let toastBg = document.createElement('DIV');
-    toastBg.classList.add('toast-bg');
-    document.body.appendChild(toastBg);
+    this.toastBg = document.createElement('DIV');
+    this.toastBg.classList.add('toast-bg');
+    document.body.appendChild(this.toastBg);
 
     // Toast
     this.toast = document.createElement('DIV');
     this.toast.classList.add('toast');
-    toastBg.appendChild(this.toast);
+    this.toastBg.appendChild(this.toast);
 
     // Text
     this.toastText = document.createElement('P');
     this.toastText.classList.add('toast-text');
     this.toastText.innerHTML = this.input.message;
     this.toast.appendChild(this.toastText);
+
+    // Buttons
+    this.createButtons();
+
+    // Events
+    return this.events();
   }
+
+  close() {
+    this.toastBg.remove();
+  }
+
+  setText(text) {
+    this.input.message = text;
+    this.toastText.innerHTML = text;
+  }
+
+  createButtons() {
+    // Create buttons
+    var buttonLine = document.createElement("DIV");
+    buttonLine.classList.add("button-line");
+    this.toast.appendChild(buttonLine);
+
+    // OK Button
+    if (this.input.ok) {
+      this.btnOk = document.createElement("BUTTON");
+      this.btnOk.innerHTML = "OK";
+      this.btnOk.classList.add("standard-button");
+      buttonLine.appendChild(this.btnOk);
+    }
+
+    // Cancel Button
+    if (this.input.cancel) {
+      this.btnCancel = document.createElement("BUTTON");
+      this.btnCancel.innerHTML = "Cancel";
+      this.btnCancel.classList.add("standard-button");
+      buttonLine.appendChild(this.btnCancel);
+    }
+
+    // Custom Button
+    if (this.input.custom) {
+      this.btnCustom = document.createElement("BUTTON");
+      this.btnCustom.innerHTML = this.input.text;
+      this.btnCustom.classList.add("standard-button");
+      buttonLine.appendChild(this.btnCustom);
+    }
+
+    // Close x
+    if (this.input.close == true) {
+      this.closeX = document.createElement("i");
+      this.closeX.classList.add("cross");
+      buttonLine.appendChild(this.closeX);
+    }
+  }
+
+  events() {
+    const bg = this.toastBg;
+    const btnOk = this.btnOk;
+    const inBtnOk = this.input.ok;
+    const btnCancel = this.btnCancel;
+    const inBtnCancel = this.input.cancel;
+    const btnCustom = this.btnCustom;
+    const inBtnCustom = this.input.custom;
+    const closeX = this.closeX;
+    const inCloseX = this.input.close;
+
+    var promise = new Promise(function(resolve, reject) {
+      if (inCloseX == true) {
+        closeX.onclick = () => {
+          bg.remove();
+        }
+      }
+
+      if (inBtnOk == true) {
+        btnOk.onclick = () => {
+          bg.remove();
+          resolve("ok");
+        }
+      }
+
+      if (inBtnCancel == true) {
+        btnCancel.onclick = () => {
+          bg.remove();
+          resolve("cancel");
+        }
+      }
+
+      if (inBtnCustom == true) {
+        btnCustom.onclick = () => {
+          bg.remove();
+          resolve("custom");
+        }
+      }
+      if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
+        reject(Error("It broke"));
+      }
+
+    });
+
+    return promise;
+
+  }
+
 }
 
 

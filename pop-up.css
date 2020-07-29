@@ -49,6 +49,10 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	width: 100%;
 }
 
+.toast-bg ~ .toast-bg {
+	display: none;
+}
+
 .pop-up, .toast {
 	min-width: 200px;
 	height: auto;
@@ -77,6 +81,16 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	max-width: 80%;
 	width: max-content;
 	padding: 8px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.toast p.toast-text {
+	flex-grow: 1;
+	display: block;
+	margin: 0;
+	margin-right: 10px;
 }
 
 .pop-up .button-line {
@@ -86,8 +100,11 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	margin-top: 18px;
 }
 
-.pop-up .button-line button {
-	margin-left: 5px;
+.toast .button-line {
+	width: max-content;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .pop-up .pop-up-icon {
@@ -97,7 +114,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	user-select: none;
 }
 
-.pop-up .standard-button {
+.pop-up .standard-button, .toast .standard-button {
 	font-family: inherit;
 	padding: 10px;
 	font-size: 12pt;
@@ -108,32 +125,47 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 	border-radius: 2px;
 	outline: none;
 	transition: background-color 0.2s, border-color 0.2s;
+	margin-left: 5px;
 }
 
-.pop-up .standard-button:hover {
+.pop-up .standard-button:hover, .toast .standard-button:hover {
 	background-color: var(--popUpBtnHoverBg);
 	border-color: var(--popUpBtnHoverBg);
 }
 
 .pop-up div.popup-close {
 	text-align: right;
-	cursor: pointer;
 	float: right;
-	transition: transform 0.2s, color 0.2s;
-	color: var(--popUpCloseColor);
 	margin: 5px 5px 0 0;
 }
-.pop-up div.popup-close i.cross {
-	display: inline-block;
+
+.pop-up div.popup-close, .toast i.cross {
+	cursor: pointer;
+	transition: transform 0.2s, color 0.2s;
+	color: var(--popUpCloseColor);
+}
+
+.pop-up div.popup-close i.cross, .toast i.cross {
 	width: 1em;
 	height: 1em;
 	background: linear-gradient(45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%), linear-gradient(135deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%);
+}
+
+.pop-up div.popup-close i.cross {
+	display: inline-block;
+}
+
+.toast i.cross {
+	display: block;
+	margin-left: 5px;
 }
 
 .pop-up div.popup-close:hover {
 	transform: scale(1.1);
 	color: var(--popUpCloseHoverColor);
 }
+
+
 
 @keyframes zoom {
 	from {
