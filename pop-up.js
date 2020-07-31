@@ -12,8 +12,8 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 class PopUp {
 
-	constructor(x) {
-		this.input = x;
+	constructor(args) {
+		this.input = args;
 		this.popUpBg;
 		this.popUp;
 		this.btnOk;
@@ -252,7 +252,15 @@ class Toast {
 		const closeX = this.closeX;
 		const inCloseX = this.input.close;
 
-		var promise = new Promise(function (resolve, reject) {
+		// Decay
+		if (this.input.decay && this.input.time != undefined) {
+			setTimeout(() => {
+				this.close()
+			}, this.input.time * 1000)
+		}
+
+		// Buttons clicked
+		let promise = new Promise(function (resolve, reject) {
 			if (inCloseX == true) {
 				closeX.onclick = () => {
 					bg.remove();
