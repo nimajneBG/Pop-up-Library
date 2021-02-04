@@ -115,13 +115,11 @@ class PopUp {
 	events() {
 		const bg = this.popUpBg;
 		const btnOk = this.btnOk;
-		const inBtnOk = this.input.ok;
 		const btnCancel = this.btnCancel;
-		const inBtnCancel = this.input.cancel;
 		const btnCustom = this.btnCustom;
-		const inBtnCustom = this.input.custom;
 		const closeX = this.closeX;
-		const inCloseX = this.input.close;
+
+		const { ok: inBtnOk, cancel: inBtnCancel, custom: inBtnCustom, close: inCloseX } = this.input;
 
 		var promise = new Promise(function (resolve, reject) {
 			if (inCloseX == true) {
@@ -244,13 +242,11 @@ class Toast {
 	events() {
 		const bg = this.toastBg;
 		const btnOk = this.btnOk;
-		const inBtnOk = this.input.ok;
 		const btnCancel = this.btnCancel;
-		const inBtnCancel = this.input.cancel;
 		const btnCustom = this.btnCustom;
-		const inBtnCustom = this.input.custom;
 		const closeX = this.closeX;
-		const inCloseX = this.input.close;
+
+		const { ok: inBtnOk, cancel: inBtnCancel, custom: inBtnCustom, close: inCloseX } = this.input;
 
 		// Decay
 		if (this.input.decay && this.input.time != undefined) {
@@ -262,9 +258,7 @@ class Toast {
 		// Buttons clicked
 		let promise = new Promise(function (resolve, reject) {
 			if (inCloseX == true) {
-				closeX.onclick = () => {
-					bg.remove();
-				}
+				closeX.onclick = () => bg.remove();
 			}
 
 			if (inBtnOk == true) {
