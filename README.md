@@ -12,6 +12,17 @@ You don't need any special HTML, because the required HTML is generated automati
 
 ## Usage
 ### Include the library
+
+**Normal files**
+```HTML
+<!--Include the CSS-->
+<link rel="stylesheet" href="pop-up.css">
+
+<!--Include the library-->
+<script src="pop-up.js"></script>
+```
+
+**Minified files**
 ```HTML
 <!--Include the CSS-->
 <link rel="stylesheet" href="pop-up.css">
