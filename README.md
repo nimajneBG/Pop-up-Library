@@ -25,10 +25,10 @@ You don't need any special HTML, because the required HTML is generated automati
 **Minified files**
 ```HTML
 <!--Include the CSS-->
-<link rel="stylesheet" href="pop-up.css">
+<link rel="stylesheet" href="pop-up.min.css">
 
 <!--Include the library-->
-<script src="pop-up.js"></script>
+<script src="pop-up.min.js"></script>
 ```
 
 ### Use the predefined functions for pop-ups
