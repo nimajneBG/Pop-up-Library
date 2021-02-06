@@ -113,12 +113,7 @@ class PopUp {
 	}
 
 	events() {
-		const bg = this.popUpBg;
-		const btnOk = this.btnOk;
-		const btnCancel = this.btnCancel;
-		const btnCustom = this.btnCustom;
-		const closeX = this.closeX;
-
+		const { popUpBg: bg, btnOk, btnCancel, btnCustom, closeX } = this;
 		const { ok: inBtnOk, cancel: inBtnCancel, custom: inBtnCustom, close: inCloseX } = this.input;
 
 		var promise = new Promise(function (resolve, reject) {
@@ -240,12 +235,7 @@ class Toast {
 	}
 
 	events() {
-		const bg = this.toastBg;
-		const btnOk = this.btnOk;
-		const btnCancel = this.btnCancel;
-		const btnCustom = this.btnCustom;
-		const closeX = this.closeX;
-
+		const { toastBg: bg, btnOk, btnCancel, btnCustom, closeX } = this;
 		const { ok: inBtnOk, cancel: inBtnCancel, custom: inBtnCustom, close: inCloseX } = this.input;
 
 		// Decay
