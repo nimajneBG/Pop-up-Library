@@ -1,6 +1,6 @@
 # Vanilla JS and CSS Pop-up library
 
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://lbesson.mit-license.org/)&nbsp;&nbsp;[![GitHub release](https://img.shields.io/github/release/nimajneBG/Pop-up-Library.svg?style=for-the-badge)](https://github.com/nimajneBG/Pop-up-Library)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://lbesson.mit-license.org/)&nbsp;&nbsp;[![GitHub release](https://img.shields.io/github/release/nimajneBG/Pop-up-Library.svg?style=for-the-badge)](https://github.com/nimajneBG/Pop-up-Library)&nbsp;&nbsp;![Using JS](https://img.shields.io/badge/Unsing-JS-green?style=for-the-badge)&nbsp;&nbsp;![Using CSS](https://img.shields.io/badge/Unsing-CSS-green?style=for-the-badge)
 
 Library for pop-ups and toasts that look much nicer than `alert()`.
 <!--Hello-->
