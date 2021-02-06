@@ -70,35 +70,33 @@ class PopUp {
 
 	}
 
+	createButton(name, text) {
+		this[name] = document.createElement("BUTTON");
+		this[name].innerHTML = text;
+		this[name].classList.add("standard-button");
+		this.buttonLine.appendChild(this[name]);
+	}
+
 
 	createButtons() {
 		// Create buttons
-		var buttonLine = document.createElement("DIV");
-		buttonLine.classList.add("button-line");
-		this.popUp.appendChild(buttonLine);
+		this.buttonLine = document.createElement("DIV");
+		this.buttonLine.classList.add("button-line");
+		this.popUp.appendChild(this.buttonLine);
 
 		// OK Button
 		if (this.input.ok) {
-			this.btnOk = document.createElement("BUTTON");
-			this.btnOk.innerHTML = "OK";
-			this.btnOk.classList.add("standard-button");
-			buttonLine.appendChild(this.btnOk);
+			this.createButton('btnOk', 'OK');
 		}
 
 		// Cancel Button
 		if (this.input.cancel) {
-			this.btnCancel = document.createElement("BUTTON");
-			this.btnCancel.innerHTML = "Cancel";
-			this.btnCancel.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCancel);
+			this.createButton('btnCancel', 'Cancel');
 		}
 
 		// Custom Button
 		if (this.input.custom) {
-			this.btnCustom = document.createElement("BUTTON");
-			this.btnCustom.innerHTML = this.input.text;
-			this.btnCustom.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCustom);
+			this.createButton('btnCustom', this.input.text);
 		}
 
 	}
@@ -196,41 +194,39 @@ class Toast {
 		this.toastText.innerHTML = text;
 	}
 
+	createButton(name, text) {
+		this[name] = document.createElement("BUTTON");
+		this[name].innerHTML = text;
+		this[name].classList.add("standard-button");
+		this.buttonLine.appendChild(this[name]);
+	}
+
 	createButtons() {
 		// Create buttons
-		var buttonLine = document.createElement("DIV");
-		buttonLine.classList.add("button-line");
-		this.toast.appendChild(buttonLine);
+		this.buttonLine = document.createElement("DIV");
+		this.buttonLine.classList.add("button-line");
+		this.toast.appendChild(this.buttonLine);
 
 		// OK Button
 		if (this.input.ok) {
-			this.btnOk = document.createElement("BUTTON");
-			this.btnOk.innerHTML = "OK";
-			this.btnOk.classList.add("standard-button");
-			buttonLine.appendChild(this.btnOk);
+			this.createButton('btnOk', 'OK');
 		}
 
 		// Cancel Button
 		if (this.input.cancel) {
-			this.btnCancel = document.createElement("BUTTON");
-			this.btnCancel.innerHTML = "Cancel";
-			this.btnCancel.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCancel);
+			this.createButton('btnCancel', 'Cancel');
 		}
 
 		// Custom Button
 		if (this.input.custom) {
-			this.btnCustom = document.createElement("BUTTON");
-			this.btnCustom.innerHTML = this.input.text;
-			this.btnCustom.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCustom);
+			this.createButton('btnCustom', this.input.text);
 		}
 
 		// Close x
 		if (this.input.close == true) {
 			this.closeX = document.createElement("i");
 			this.closeX.classList.add("cross");
-			buttonLine.appendChild(this.closeX);
+			this.buttonLine.appendChild(this.closeX);
 		}
 	}
 
