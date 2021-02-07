@@ -25,9 +25,8 @@ class PopUp {
 	create() {
 
 		// Error detection
-		if (this.input.ok != true && this.input.cancel != true && this.input.custom != true) {
-			console.error("At least one sort of button have to be selected.");
-			return 1;
+		if (!this.input.ok && !this.input.cancel && !this.input.custom) {
+			return console.error("At least one sort of button have to be selected.");
 		}
 
 
@@ -111,37 +110,32 @@ class PopUp {
 	}
 
 	events() {
-		const { popUpBg: bg, btnOk, btnCancel, btnCustom, closeX } = this;
-		const { ok: inBtnOk, cancel: inBtnCancel, custom: inBtnCustom, close: inCloseX } = this.input;
-
-		var promise = new Promise(function (resolve, reject) {
-			if (inCloseX == true) {
-				closeX.onclick = () => {
-					bg.remove();
-				}
+		let promise = new Promise((resolve, reject) => {
+			if (this.input.close == true) {
+				this.closeX.onclick = () => this.close();
 			}
 
-			if (inBtnOk == true) {
-				btnOk.onclick = () => {
-					bg.remove();
+			if (this.input.ok) {
+				this.btnOk.onclick = () => {
+					this.close();
 					resolve("ok");
 				}
 			}
 
-			if (inBtnCancel == true) {
-				btnCancel.onclick = () => {
-					bg.remove();
+			if (this.input.cancel) {
+				this.btnCancel.onclick = () => {
+					this.close();
 					resolve("cancel");
 				}
 			}
 
-			if (inBtnCustom == true) {
-				btnCustom.onclick = () => {
-					bg.remove();
+			if (this.input.custom) {
+				this.btnCustom.onclick = () => {
+					this.close();
 					resolve("custom");
 				}
 			}
-			if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
+			if (!this.input.custom && !this.input.ok && !this.input.cancel) {
 				reject(Error("It broke"));
 			}
 
@@ -231,9 +225,6 @@ class Toast {
 	}
 
 	events() {
-		const { toastBg: bg, btnOk, btnCancel, btnCustom, closeX } = this;
-		const { ok: inBtnOk, cancel: inBtnCancel, custom: inBtnCustom, close: inCloseX } = this.input;
-
 		// Decay
 		if (this.input.decay && this.input.time != undefined) {
 			setTimeout(() => {
@@ -242,32 +233,32 @@ class Toast {
 		}
 
 		// Buttons clicked
-		let promise = new Promise(function (resolve, reject) {
-			if (inCloseX == true) {
-				closeX.onclick = () => bg.remove();
+		let promise = new Promise((resolve, reject) => {
+			if (this.input.close == true) {
+				this.closeX.onclick = () => this.close();
 			}
 
-			if (inBtnOk == true) {
-				btnOk.onclick = () => {
-					bg.remove();
+			if (this.input.ok) {
+				this.btnOk.onclick = () => {
+					this.close();
 					resolve("ok");
 				}
 			}
 
-			if (inBtnCancel == true) {
-				btnCancel.onclick = () => {
-					bg.remove();
+			if (this.input.cancel) {
+				this.btnCancel.onclick = () => {
+					this.close();
 					resolve("cancel");
 				}
 			}
 
-			if (inBtnCustom == true) {
-				btnCustom.onclick = () => {
-					bg.remove();
+			if (this.input.custom) {
+				this.btnCustom.onclick = () => {
+					this.close();
 					resolve("custom");
 				}
 			}
-			if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
+			if (!this.input.custom && !this.input.ok && !this.input.cancel) {
 				reject(Error("It broke"));
 			}
 
@@ -291,7 +282,7 @@ function popUpInfo(message) {
 		"close": true,
 		"icon": "📣"
 	});
-	p.create().then(function (result) { }, function (err) { console.log(err); });
+	p.create().then((result) => { }).catch((err) => console.log(err));
 }
 
 function popUpError(message) {
@@ -303,7 +294,7 @@ function popUpError(message) {
 		"close": true,
 		"icon": "🛑"
 	});
-	p.create().then(function (result) { }, function (err) { console.log(err); });
+	p.create().then((result) => { }).catch((err) => console.log(err));
 }
 
 function popUpConfirm(message) {
