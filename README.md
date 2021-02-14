@@ -88,8 +88,7 @@ The promise returns "ok" or "cancel".*/
 	"custom" : false, //Set whether there should be a custom button
 	"close" : true, //Set whether there should be a close button ("x")
 	"text" : "custom button text", //Set the text for your custom button
-	"decay": true //Set whether the toast should decay
-	"time": 5 //Set the decay time in seconds
+	"decay": 5 //Set the decay time of the toast. If the toast shouldn't decay set it to false or leave it out
   });
 
   t.create().then((result) => {

@@ -226,10 +226,10 @@ class Toast {
 
 	events() {
 		// Decay
-		if (this.input.decay && this.input.time != undefined) {
-			setTimeout(() => {
-				this.close()
-			}, this.input.time * 1000)
+		if (this.input.decay) {
+			if (typeof this.input.decay === 'number') {
+				setTimeout(() => this.close(), this.input.time * 1000)
+			}
 		}
 
 		// Buttons clicked
