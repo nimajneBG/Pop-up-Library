@@ -25,9 +25,8 @@ class PopUp {
 	create() {
 
 		// Error detection
-		if (this.input.ok != true && this.input.cancel != true && this.input.custom != true) {
-			console.error("At least one sort of button have to be selected.");
-			return 1;
+		if (!this.input.ok && !this.input.cancel && !this.input.custom) {
+			return console.error("At least one sort of button have to be selected.");
 		}
 
 
@@ -70,35 +69,33 @@ class PopUp {
 
 	}
 
+	createButton(name, text) {
+		this[name] = document.createElement("BUTTON");
+		this[name].innerHTML = text;
+		this[name].classList.add("standard-button");
+		this.buttonLine.appendChild(this[name]);
+	}
+
 
 	createButtons() {
 		// Create buttons
-		var buttonLine = document.createElement("DIV");
-		buttonLine.classList.add("button-line");
-		this.popUp.appendChild(buttonLine);
+		this.buttonLine = document.createElement("DIV");
+		this.buttonLine.classList.add("button-line");
+		this.popUp.appendChild(this.buttonLine);
 
 		// OK Button
 		if (this.input.ok) {
-			this.btnOk = document.createElement("BUTTON");
-			this.btnOk.innerHTML = "OK";
-			this.btnOk.classList.add("standard-button");
-			buttonLine.appendChild(this.btnOk);
+			this.createButton('btnOk', 'OK');
 		}
 
 		// Cancel Button
 		if (this.input.cancel) {
-			this.btnCancel = document.createElement("BUTTON");
-			this.btnCancel.innerHTML = "Cancel";
-			this.btnCancel.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCancel);
+			this.createButton('btnCancel', 'Cancel');
 		}
 
 		// Custom Button
 		if (this.input.custom) {
-			this.btnCustom = document.createElement("BUTTON");
-			this.btnCustom.innerHTML = this.input.text;
-			this.btnCustom.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCustom);
+			this.createButton('btnCustom', this.input.text);
 		}
 
 	}
@@ -113,44 +110,32 @@ class PopUp {
 	}
 
 	events() {
-		const bg = this.popUpBg;
-		const btnOk = this.btnOk;
-		const inBtnOk = this.input.ok;
-		const btnCancel = this.btnCancel;
-		const inBtnCancel = this.input.cancel;
-		const btnCustom = this.btnCustom;
-		const inBtnCustom = this.input.custom;
-		const closeX = this.closeX;
-		const inCloseX = this.input.close;
-
-		var promise = new Promise(function (resolve, reject) {
-			if (inCloseX == true) {
-				closeX.onclick = () => {
-					bg.remove();
-				}
+		let promise = new Promise((resolve, reject) => {
+			if (this.input.close == true) {
+				this.closeX.onclick = () => this.close();
 			}
 
-			if (inBtnOk == true) {
-				btnOk.onclick = () => {
-					bg.remove();
+			if (this.input.ok) {
+				this.btnOk.onclick = () => {
+					this.close();
 					resolve("ok");
 				}
 			}
 
-			if (inBtnCancel == true) {
-				btnCancel.onclick = () => {
-					bg.remove();
+			if (this.input.cancel) {
+				this.btnCancel.onclick = () => {
+					this.close();
 					resolve("cancel");
 				}
 			}
 
-			if (inBtnCustom == true) {
-				btnCustom.onclick = () => {
-					bg.remove();
+			if (this.input.custom) {
+				this.btnCustom.onclick = () => {
+					this.close();
 					resolve("custom");
 				}
 			}
-			if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
+			if (!this.input.custom && !this.input.ok && !this.input.cancel) {
 				reject(Error("It broke"));
 			}
 
@@ -203,91 +188,77 @@ class Toast {
 		this.toastText.innerHTML = text;
 	}
 
+	createButton(name, text) {
+		this[name] = document.createElement("BUTTON");
+		this[name].innerHTML = text;
+		this[name].classList.add("standard-button");
+		this.buttonLine.appendChild(this[name]);
+	}
+
 	createButtons() {
 		// Create buttons
-		var buttonLine = document.createElement("DIV");
-		buttonLine.classList.add("button-line");
-		this.toast.appendChild(buttonLine);
+		this.buttonLine = document.createElement("DIV");
+		this.buttonLine.classList.add("button-line");
+		this.toast.appendChild(this.buttonLine);
 
 		// OK Button
 		if (this.input.ok) {
-			this.btnOk = document.createElement("BUTTON");
-			this.btnOk.innerHTML = "OK";
-			this.btnOk.classList.add("standard-button");
-			buttonLine.appendChild(this.btnOk);
+			this.createButton('btnOk', 'OK');
 		}
 
 		// Cancel Button
 		if (this.input.cancel) {
-			this.btnCancel = document.createElement("BUTTON");
-			this.btnCancel.innerHTML = "Cancel";
-			this.btnCancel.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCancel);
+			this.createButton('btnCancel', 'Cancel');
 		}
 
 		// Custom Button
 		if (this.input.custom) {
-			this.btnCustom = document.createElement("BUTTON");
-			this.btnCustom.innerHTML = this.input.text;
-			this.btnCustom.classList.add("standard-button");
-			buttonLine.appendChild(this.btnCustom);
+			this.createButton('btnCustom', this.input.text);
 		}
 
 		// Close x
 		if (this.input.close == true) {
 			this.closeX = document.createElement("i");
 			this.closeX.classList.add("cross");
-			buttonLine.appendChild(this.closeX);
+			this.buttonLine.appendChild(this.closeX);
 		}
 	}
 
 	events() {
-		const bg = this.toastBg;
-		const btnOk = this.btnOk;
-		const inBtnOk = this.input.ok;
-		const btnCancel = this.btnCancel;
-		const inBtnCancel = this.input.cancel;
-		const btnCustom = this.btnCustom;
-		const inBtnCustom = this.input.custom;
-		const closeX = this.closeX;
-		const inCloseX = this.input.close;
-
 		// Decay
-		if (this.input.decay && this.input.time != undefined) {
-			setTimeout(() => {
-				this.close()
-			}, this.input.time * 1000)
+		if (this.input.decay) {
+			if (typeof this.input.decay === 'number') {
+				setTimeout(() => this.close(), this.input.time * 1000)
+			}
 		}
 
 		// Buttons clicked
-		let promise = new Promise(function (resolve, reject) {
-			if (inCloseX == true) {
-				closeX.onclick = () => {
-					bg.remove();
-				}
+		let promise = new Promise((resolve, reject) => {
+			if (this.input.close == true) {
+				this.closeX.onclick = () => this.close();
 			}
 
-			if (inBtnOk == true) {
-				btnOk.onclick = () => {
-					bg.remove();
+			if (this.input.ok) {
+				this.btnOk.onclick = () => {
+					this.close();
 					resolve("ok");
 				}
 			}
 
-			if (inBtnCancel == true) {
-				btnCancel.onclick = () => {
-					bg.remove();
+			if (this.input.cancel) {
+				this.btnCancel.onclick = () => {
+					this.close();
 					resolve("cancel");
 				}
 			}
 
-			if (inBtnCustom == true) {
-				btnCustom.onclick = () => {
-					bg.remove();
+			if (this.input.custom) {
+				this.btnCustom.onclick = () => {
+					this.close();
 					resolve("custom");
 				}
 			}
-			if (inBtnCustom != true && inBtnOk != true && inBtnCancel != true) {
+			if (!this.input.custom && !this.input.ok && !this.input.cancel) {
 				reject(Error("It broke"));
 			}
 
@@ -311,7 +282,7 @@ function popUpInfo(message) {
 		"close": true,
 		"icon": "📣"
 	});
-	p.create().then(function (result) { }, function (err) { console.log(err); });
+	p.create().then((result) => { }).catch((err) => console.log(err));
 }
 
 function popUpError(message) {
@@ -323,7 +294,7 @@ function popUpError(message) {
 		"close": true,
 		"icon": "🛑"
 	});
-	p.create().then(function (result) { }, function (err) { console.log(err); });
+	p.create().then((result) => { }).catch((err) => console.log(err));
 }
 
 function popUpConfirm(message) {
